@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+      crossorigin="anonymous"
+    />
+    <title>Converter</title>
+    <style>
+        section {
+            display: flex;
+            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="converter_container">
+              <h2 class="text-center mb-5">Aspect Radio Converter</h2>
+              <form>
+                <div class="row mb-3">
+                  <div class="col">
+                    <label class="form-label">Current Width</label>
+                    <input
+                      id="c_width"
+                      type="number"
+                      class="form-control"
+                      placeholder="Current Width"
+                    />
+                  </div>
+                  <div class="col">
+                    <label class="form-label">Current Height</label>
+                    <input
+                      id="c_height"
+                      type="number"
+                      class="form-control"
+                      placeholder="Current Height"
+                    />
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col">
+                    <label class="form-label">Convert Width</label>
+                    <input
+                      id="con_width"
+                      type="number"
+                      class="form-control"
+                      placeholder="Convert Width"
+                    />
+                  </div>
+                  <div class="col">
+                    <label class="form-label">Convert Height</label>
+                    <input
+                      id="con_height"
+                      type="number"
+                      class="form-control"
+                      placeholder="Convert Height"
+                    />
+                  </div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Convert</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.min.js"
+      integrity="sha384-PsUw7Xwds7x08Ew3exXhqzbhuEYmA2xnwc8BuD6SEr+UmEHlX8/MCltYEodzWA4u"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      //   let converter = function () {
+      //     if (convertWidth) {
+      //       convertHeight = (currentHeight * convertWidth) / currentWidth;
+      //       convertHeightInput.value = convertHeight;
+      //     } else {
+      //       convertWidth = (currentWidth * convertHeight) / currentHeight;
+      //       convertWidthInput.value = convertWidth;
+      //     }
+      //   };
+
+      let form = document.querySelector("form");
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        let currentWidthInput = document.getElementById("c_width");
+        let currentWidth = parseFloat(currentWidthInput.value);
+
+        let currentHeightInput = document.getElementById("c_height");
+        let currentHeight = parseFloat(currentHeightInput.value);
+
+        let convertWidthInput = document.getElementById("con_width");
+        let convertWidth = parseFloat(convertWidthInput.value);
+
+        let convertHeightInput = document.getElementById("con_height");
+        let convertHeight = parseFloat(convertHeightInput.value);
+
+        if (convertWidth) {
+          convertHeight = (currentHeight * convertWidth) / currentWidth;
+          console.log(convertHeight);
+          convertHeightInput.value = convertHeight;
+        } else {
+          convertWidth = (currentWidth * convertHeight) / currentHeight;
+          convertWidthInput.value = convertWidth;
+          console.log(convertWidth);
+        }
+      });
+    </script>
+  </body>
+</html>
